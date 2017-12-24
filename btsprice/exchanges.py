@@ -572,7 +572,7 @@ if __name__ == "__main__":
         #loop.create_task(run_task(exchanges.orderbook_btsbots, "OPEN.BTC", "BTS")),
         # loop.create_task(run_task(exchanges.orderbook_aex))
         # loop.create_task(run_task(exchanges.orderbook_lbank, "BTC", "BTS"))
-        loop.create_task(run_task(exchanges.orderbook_binance))
+        loop.create_task(run_task(exchanges.orderbook_binance)),
         loop.create_task(run_task(exchanges.orderbook_zb, "QC", "BTS"))
         # loop.create_task(run_task(exchanges.orderbook_19800))
         # loop.create_task(run_task(exchanges.orderbook_yunbi)),
