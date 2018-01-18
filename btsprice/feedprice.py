@@ -244,8 +244,8 @@ class FeedPrice(object):
         for asset in asset_list:
             if asset not in real_price:
                 continue
-            if self.feedapi.is_blackswan(asset):
-                continue
+#             if self.feedapi.is_blackswan(asset):
+#                 continue
             if asset not in my_feeds:
                 need_publish[asset] = real_price[asset]
                 continue
