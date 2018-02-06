@@ -122,13 +122,13 @@ class FeedApi(object):
 
         quote_precision = self.asset_info["BTS"]["precision"]
         base_precision = self.asset_info[asset]["precision"]
-        price_settle = price * 10**(base_precision - quote_precision)
+        price_settle = 1.1 * price * 10**(base_precision - quote_precision)
         if "core_exchange_factor" in custom:
             core_exchange_factor = custom["core_exchange_factor"]
         else:
             core_exchange_factor = self.core_exchange_factor
         price_rate = price_settle * core_exchange_factor
-        price_settle = 1.1 * fractions.Fraction.from_float(
+        price_settle = fractions.Fraction.from_float(
             price_settle).limit_denominator(100000)
         price_rate = fractions.Fraction.from_float(
             price_rate).limit_denominator(100000)
