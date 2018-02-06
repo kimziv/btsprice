@@ -68,7 +68,7 @@ class FeedApi(object):
                     }
                 }
             }
-        self.core_exchange_factor = 1.01
+        self.core_exchange_factor = 1.21
 
     def init_default(self):
         self.asset_list = [
