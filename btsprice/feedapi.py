@@ -128,7 +128,7 @@ class FeedApi(object):
         else:
             core_exchange_factor = self.core_exchange_factor
         price_rate = price_settle * core_exchange_factor
-        price_settle = fractions.Fraction.from_float(
+        price_settle = 1.1 * fractions.Fraction.from_float(
             price_settle).limit_denominator(100000)
         price_rate = fractions.Fraction.from_float(
             price_rate).limit_denominator(100000)
