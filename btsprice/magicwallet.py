@@ -61,7 +61,7 @@ class Magicwallet():
             withdrawBitCNY = float(price_element['withdrawBitCNY'])
             depositFiatCNY = float(price_element['depositFiatCNY'])
             withdrawFiatCNY = float(price_element['withdrawFiatCNY'])
-            price_rate = (depositFiatCNY+withdrawFiatCNY)/(depositBitCNY+withdrawBitCNY)
+            price_rate = float((depositFiatCNY+withdrawFiatCNY)/(depositBitCNY+withdrawBitCNY))
             print('magic price rate:'+price_rate)
             return price_rate
         except Exception as e:
@@ -79,6 +79,7 @@ class Magicwallet():
         for price_element in price_list:
             datelength=price_element['datelength']
             if (datelength >= 60) and self.is_valid_element(price_element):
+                print('datalength:'+datelength)
                 return price_element
         return None
 
