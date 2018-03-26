@@ -68,7 +68,7 @@ class FeedApi(object):
                     }
                 }
             }
-        self.core_exchange_factor = 1.21
+        self.core_exchange_factor = 1.01
 
     def init_default(self):
         self.asset_list = [
@@ -122,7 +122,7 @@ class FeedApi(object):
 
         quote_precision = self.asset_info["BTS"]["precision"]
         base_precision = self.asset_info[asset]["precision"]
-        price_settle = 1.03 * price * 10**(base_precision - quote_precision)
+        price_settle = price * 10**(base_precision - quote_precision)
         if "core_exchange_factor" in custom:
             core_exchange_factor = custom["core_exchange_factor"]
         else:
