@@ -285,7 +285,7 @@ class FeedPrice(object):
 
     def task_publish_price(self):
         self.filter_price = self.price_add_by_magicwallet(self.filter_price)
-        print("fiter price_add_by_magicwallet:"+ str(self.filter_price))
+        #print("fiter price_add_by_magicwallet:"+ str(self.filter_price))
 
         if not self.config["witness"]:
             return
