@@ -22,10 +22,11 @@ class Exchanges():
             params = {'c': base, 'mk_type': quote}
             response = yield from asyncio.wait_for(self.session.get(
                 url, params=params), 120)
-            print("aex url:%s?c=%s&mk_type=%s" %(url,quote,base))
+            print("aex url:%s?c=%s&mk_type=%s" %(url,base,quote))
             #response = yield from response.read()
             # result = json.loads(response.decode("utf-8-sig"))
-            result = yield from response.json()
+            response = yield from response.read()
+            result = json.loads(response.decode("utf-8-sig"))
             for order_type in self.order_types:
                 for order in result[order_type]:
                     order[0] = float(order[0])
