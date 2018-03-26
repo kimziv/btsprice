@@ -62,10 +62,10 @@ class Magicwallet():
             depositFiatCNY = float(price_element['depositFiatCNY'])
             withdrawFiatCNY = float(price_element['withdrawFiatCNY'])
             price_rate = float((depositFiatCNY+withdrawFiatCNY)/(depositBitCNY+withdrawBitCNY))
-            print('magic price rate:'+price_rate)
+            print('magic price rate:'+str(price_rate))
             return price_rate
         except Exception as e:
-            print("Error fetching book from binance!")
+            print("Error fetching book from magicwallet!")
             print(e)
             return 1
 
