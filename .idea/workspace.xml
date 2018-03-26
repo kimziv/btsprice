@@ -112,8 +112,8 @@
       <file leaf-file-name="feedprice.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="287" column="71" lean-forward="false" selection-start-line="287" selection-start-column="71" selection-end-line="287" selection-end-column="71" />
+            <state relative-caret-position="120">
+              <caret line="274" column="96" lean-forward="true" selection-start-line="274" selection-start-column="96" selection-end-line="274" selection-end-column="96" />
               <folding>
                 <element signature="e#47#84#0" expanded="true" />
               </folding>
@@ -417,8 +417,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="287" column="71" lean-forward="false" selection-start-line="287" selection-start-column="71" selection-end-line="287" selection-end-column="71" />
+        <state relative-caret-position="120">
+          <caret line="274" column="96" lean-forward="true" selection-start-line="274" selection-start-column="96" selection-end-line="274" selection-end-column="96" />
           <folding>
             <element signature="e#47#84#0" expanded="true" />
           </folding>
