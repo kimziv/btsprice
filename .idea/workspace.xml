@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7db4e9e9-7d65-4e04-ac16-d9b774485a91" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/exchanges.py" afterPath="$PROJECT_DIR$/btsprice/exchanges.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/task_exchanges.py" afterPath="$PROJECT_DIR$/btsprice/task_exchanges.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/feedprice.py" afterPath="$PROJECT_DIR$/btsprice/feedprice.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,7 +42,7 @@
       <file leaf-file-name="magicwallet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/btsprice/magicwallet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
+            <state relative-caret-position="423">
               <caret line="55" column="7" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
               <folding />
             </state>
@@ -71,17 +72,17 @@
       <file leaf-file-name="exchanges.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/btsprice/exchanges.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="285">
+              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task_exchanges.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task_exchanges.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/btsprice/task_exchanges.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
+            <state relative-caret-position="976">
               <caret line="186" column="51" lean-forward="false" selection-start-line="186" selection-start-column="51" selection-end-line="186" selection-end-column="51" />
               <folding>
                 <element signature="e#24#64#0" expanded="true" />
@@ -110,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feedprice.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="feedprice.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2751">
-              <caret line="111" column="25" lean-forward="false" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="25" />
+            <state relative-caret-position="308">
+              <caret line="279" column="50" lean-forward="false" selection-start-line="279" selection-start-column="50" selection-end-line="279" selection-end-column="50" />
               <folding>
                 <element signature="e#47#84#0" expanded="true" />
               </folding>
@@ -128,9 +129,9 @@
     <findStrings>
       <find>settlement_price</find>
       <find>compute_price</find>
-      <find>exchanges</find>
       <find>task_publish_price</find>
       <find>core_exchange_factor</find>
+      <find>exchanges</find>
       <find>tasks</find>
     </findStrings>
   </component>
@@ -142,10 +143,10 @@
       <list>
         <option value="$PROJECT_DIR$/config.json.sample" />
         <option value="$PROJECT_DIR$/btsprice/bts_price_after_match.py" />
-        <option value="$PROJECT_DIR$/btsprice/feedprice.py" />
         <option value="$PROJECT_DIR$/btsprice/feedapi.py" />
-        <option value="$PROJECT_DIR$/btsprice/exchanges.py" />
         <option value="$PROJECT_DIR$/btsprice/task_exchanges.py" />
+        <option value="$PROJECT_DIR$/btsprice/exchanges.py" />
+        <option value="$PROJECT_DIR$/btsprice/feedprice.py" />
       </list>
     </option>
   </component>
@@ -366,29 +367,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/btsprice/magicwallet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="55" column="7" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/btsprice/bts_price_after_match.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="238" column="22" lean-forward="false" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2751">
-          <caret line="111" column="25" lean-forward="false" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="25" />
-          <folding>
-            <element signature="e#47#84#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -408,20 +391,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/btsprice/task_exchanges.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="976">
+          <caret line="186" column="51" lean-forward="false" selection-start-line="186" selection-start-column="51" selection-end-line="186" selection-end-column="51" />
+          <folding>
+            <element signature="e#24#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/btsprice/exchanges.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="285">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/btsprice/task_exchanges.py">
+    <entry file="file://$PROJECT_DIR$/btsprice/magicwallet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="186" column="51" lean-forward="false" selection-start-line="186" selection-start-column="51" selection-end-line="186" selection-end-column="51" />
+        <state relative-caret-position="423">
+          <caret line="55" column="7" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="279" column="50" lean-forward="false" selection-start-line="279" selection-start-column="50" selection-end-line="279" selection-end-column="50" />
           <folding>
-            <element signature="e#24#64#0" expanded="true" />
+            <element signature="e#47#84#0" expanded="true" />
           </folding>
         </state>
       </provider>

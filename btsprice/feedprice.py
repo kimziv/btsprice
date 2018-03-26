@@ -275,7 +275,9 @@ class FeedPrice(object):
         print("计算公式为 原有价格*(1+(%s-1)*%s))" %(self.magicrate,mrate))
         for oneprice in real_price:
             ready_publish[oneprice]=real_price[oneprice]*(1+(self.magicrate-1)*mrate)
-        print(real_price)
+        print("realprice:"+str(real_price))
+        print("\n")
+        print("ready_publish:" + str(ready_publish))
         if ready_publish:
             return ready_publish
         else:
