@@ -98,7 +98,7 @@ class Exchanges():
         except Exception as e:
             traceback.print_exc()
     @asyncio.coroutine
-    def orderbook_poloniex(self, quote="btc", base="bts"):
+    def orderbook_poloniex(self, quote="BTC", base="BTS"):
         try:
             quote = quote.upper()
             base = base.upper()

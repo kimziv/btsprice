@@ -272,12 +272,12 @@ class FeedPrice(object):
         ready_publish = {}
         self.magicrate=self.bts_price.get_magic_rate()
         mrate=self.config["maigcwalletrate"]
-        print("计算公式为 原有价格*(1+(%s-1)*%s))" %(self.magicrate,mrate))
+        print("compensated BTS Price = original BTS Price*(1+(%s-1)*%s))" %(self.magicrate,mrate))
         for oneprice in real_price:
             ready_publish[oneprice]=real_price[oneprice]*(1+(self.magicrate-1)*mrate)
-        print("realprice:"+str(real_price))
-        print("\n")
-        print("ready_publish:" + str(ready_publish))
+        # print("realprice:"+str(real_price))
+        # print("\n")
+        # print("ready_publish:" + str(ready_publish))
         if ready_publish:
             return ready_publish
         else:
