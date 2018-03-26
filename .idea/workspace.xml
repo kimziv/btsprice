@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7db4e9e9-7d65-4e04-ac16-d9b774485a91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/btsprice/magicwallet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/bts_price_after_match.py" afterPath="$PROJECT_DIR$/btsprice/bts_price_after_match.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/feedapi.py" afterPath="$PROJECT_DIR$/btsprice/feedapi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/feedprice.py" afterPath="$PROJECT_DIR$/btsprice/feedprice.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/task_exchanges.py" afterPath="$PROJECT_DIR$/btsprice/task_exchanges.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.json.sample" afterPath="$PROJECT_DIR$/config.json.sample" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btsprice/exchanges.py" afterPath="$PROJECT_DIR$/btsprice/exchanges.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="metadata.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="metadata.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/btsprice/metadata.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -73,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exchanges.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="exchanges.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/btsprice/exchanges.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="569" column="9" lean-forward="false" selection-start-line="569" selection-start-column="4" selection-end-line="569" selection-end-column="9" />
+            <state relative-caret-position="70">
+              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -150,6 +144,7 @@
         <option value="$PROJECT_DIR$/btsprice/feedprice.py" />
         <option value="$PROJECT_DIR$/btsprice/task_exchanges.py" />
         <option value="$PROJECT_DIR$/btsprice/feedapi.py" />
+        <option value="$PROJECT_DIR$/btsprice/exchanges.py" />
       </list>
     </option>
   </component>
@@ -370,14 +365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/btsprice/exchanges.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="569" column="9" lean-forward="false" selection-start-line="569" selection-start-column="4" selection-end-line="569" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/btsprice/magicwallet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -426,6 +413,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btsprice/exchanges.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
