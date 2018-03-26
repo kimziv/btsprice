@@ -79,7 +79,7 @@ class Magicwallet():
         for price_element in price_list:
             datelength=price_element['datelength']
             if (datelength >= 60) and self.is_valid_element(price_element):
-                print('datalength:'+datelength)
+                print('datalength:'+str(datelength))
                 return price_element
         return None
 
