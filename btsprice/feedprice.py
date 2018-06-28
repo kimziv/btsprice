@@ -296,6 +296,7 @@ class FeedPrice(object):
         if feed_need_publish:
             self.logger.info("publish feeds: %s" % feed_need_publish)
             self.feedapi.publish_feed(feed_need_publish)
+            print("publish feeds: %s" % feed_need_publish)
 
     @asyncio.coroutine
     def run_task(self):
