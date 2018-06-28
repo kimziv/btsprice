@@ -1,7 +1,7 @@
 {
-    "witness": "",
+    "witness": "witness.yao",
     "timer_minute": 2,
-    "maigcwalletrate":0.4,
+    "maigcwalletrate":0.18,
     "magicwalletkey":"",
     "asset_list": [
         "BTC", "SILVER", "GOLD", "TRY", "SGD", "HKD", "NZD", "CNY",
