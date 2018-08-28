@@ -8,7 +8,7 @@ import asyncio
 
 
 class TaskExchanges(object):
-    def __init__(self, data={}, magicwalletkey=''):
+    def __init__(self, data={}, magicwalletkey = ''):
         self.period = 120
         self.exchanges = Exchanges()
         self.yahoo = Yahoo()
@@ -103,7 +103,7 @@ class TaskExchanges(object):
                 time_left = 1
             time_end += time_left
             yield from asyncio.sleep(time_left)
-
+    
     @asyncio.coroutine
     def fetch_magicwallet_rate(self):
         time_end = int(time.time())
@@ -112,7 +112,7 @@ class TaskExchanges(object):
             time_begin = time_end
             _magic = yield from self.magicwallet.get_changerate()
             time_end = int(time.time())
-            if _magic:
+            if _magic: 
                 magic["Magicwallet"] = _magic
                 if self.handler:
                     self.handler("magic", "Magicwallet", _magic)
@@ -167,15 +167,15 @@ class TaskExchanges(object):
 
     def run_tasks_orderbook(self, loop):
         return [
-            #loop.create_task(self.fetch_orderbook(
-             #   "btsbots_cny", "CNY",
-              #  self.exchanges.orderbook_btsbots, "CNY", "BTS")),
-            #loop.create_task(self.fetch_orderbook(
-             #   "btsbots_usd", "USD",
-              #  self.exchanges.orderbook_btsbots, "USD", "BTS")),
-            #loop.create_task(self.fetch_orderbook(
-             #   "btsbots_open.btc", "BTC",
-              #  self.exchanges.orderbook_btsbots, "OPEN.BTC", "BTS")),
+            loop.create_task(self.fetch_orderbook(
+                "btsbots_cny", "CNY",
+                self.exchanges.orderbook_btsbots, "CNY", "BTS")),
+            loop.create_task(self.fetch_orderbook(
+                "btsbots_usd", "USD",
+                self.exchanges.orderbook_btsbots, "USD", "BTS")),
+            loop.create_task(self.fetch_orderbook(
+                "btsbots_open.btc", "BTC",
+                self.exchanges.orderbook_btsbots, "OPEN.BTC", "BTS")),
             loop.create_task(self.fetch_orderbook(
                 "aex_btc", "BTC",
                 self.exchanges.orderbook_aex, "btc", "bts")),
@@ -184,16 +184,13 @@ class TaskExchanges(object):
                 self.exchanges.orderbook_aex, "bitcny", "bts")),
             loop.create_task(self.fetch_orderbook(
                 "aex_bitusd", "USD",
-                self.exchanges.orderbook_aex, "usdt", "bts")),
+                self.exchanges.orderbook_aex, "bitusd", "bts")),
             loop.create_task(self.fetch_orderbook(
                 "zb_btc", "BTC",
                 self.exchanges.orderbook_zb, "btc", "bts")),
             loop.create_task(self.fetch_orderbook(
                 "zb_usdt", "USD",
                 self.exchanges.orderbook_zb, "usdt", "bts")),
-             # loop.create_task(self.fetch_orderbook(
-             #     "zb_qc", "CNY",
-             #     self.exchanges.orderbook_zb, "qc", "bts")),
             loop.create_task(self.fetch_orderbook(
                 "lbank_btc", "BTC",
                 self.exchanges.orderbook_lbank, "btc", "bts")),
@@ -202,7 +199,7 @@ class TaskExchanges(object):
                 self.exchanges.orderbook_binance, "btc", "bts")),
             loop.create_task(self.fetch_orderbook(
                 "poloniex_btc", "BTC",
-                self.exchanges.orderbook_poloniex, "BTC", "BTS"))
+                self.exchanges.orderbook_poloniex, "btc", "bts"))
             # loop.create_task(self.fetch_orderbook(
             #     "yunbi_cny", "CNY",
             #     self.exchanges.orderbook_yunbi, "cny", "bts")),

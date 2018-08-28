@@ -195,7 +195,6 @@ class FeedApi(object):
             wallet_was_unlocked = True
             self.rpc.unlock(self.password)
 
-        print("assets: %s" % feeds)
         handle = self.rpc.begin_builder_transaction()
         for asset in feeds:
             custom = {}

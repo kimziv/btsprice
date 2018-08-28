@@ -29,6 +29,7 @@ class FeedPrice(object):
         self.bts_price.set_weight(self.config["market_weight"])
         self.init_tasks()
         self.magicwallet = Magicwallet(self.config["magicwalletkey"])
+
         self.setup_log()
         self.init_mpa_info()
         self.magicrate = None
@@ -67,7 +68,6 @@ class FeedPrice(object):
     def init_tasks(self):
         loop = asyncio.get_event_loop()
         # init task_exchanges
-        #task_exchanges = TaskExchanges(self.exchange_data)
         task_exchanges = TaskExchanges(self.exchange_data, self.config["magicwalletkey"])
         task_exchanges.set_period(int(self.config["timer_minute"])*60)
 
@@ -152,6 +152,7 @@ class FeedPrice(object):
 
     def price_filter(self, bts_price_in_cny):
         self.filter_price = self.get_average_price(bts_price_in_cny)
+        self.filter_price = self.price_add_by_magicwallet(self.filter_price)
 
     def get_median_price(self, bts_price_in_cny):
         median_price = {}
@@ -204,9 +205,12 @@ class FeedPrice(object):
         print(t.get_string())
 
     def display_price(self):
+        # t = PrettyTable([
+        #     "asset", "rate(CNY/)", "current(/BTS)", "current(BTS/)",
+        #     "median(/BTS)", "median(BTS/)", "my feed"])
         t = PrettyTable([
-            "asset", "rate(CNY/)", "current(/BTS)", "current(BTS/)",
-            "median(/BTS)", "median(BTS/)", "my feed"])
+            "asset", "rate(CNY/)", "this market(/BTS)", "this market(BTS/)",
+            "this feed(/BTS)", "this feed(BTS/)", "last feed"])
         t.align = 'r'
         t.border = True
         for asset in sorted(self.filter_price):
@@ -247,8 +251,8 @@ class FeedPrice(object):
         for asset in asset_list:
             if asset not in real_price:
                 continue
-#             if self.feedapi.is_blackswan(asset):
-#                 continue
+            if self.config["price_limit"]["check_blackswan"] == 1 and self.feedapi.is_blackswan(asset):
+                continue
             if asset not in my_feeds:
                 need_publish[asset] = real_price[asset]
                 continue
@@ -270,23 +274,26 @@ class FeedPrice(object):
 
     def price_add_by_magicwallet(self,real_price):
         ready_publish = {}
-        self.magicrate=self.bts_price.get_magic_rate()
-        mrate=self.config["maigcwalletrate"]
-        print("+++compensated BTS Price = original BTS Price*(1+(%s-1)*%s))" %(self.magicrate,mrate))
+        self.magicrate = self.bts_price.get_magic_rate()
+        mrate = self.config["maigcwalletrate"]
+        print("计算公式为 原有价格*(1+(%s-1)*%s))" %(self.magicrate,mrate))
         for oneprice in real_price:
-            ready_publish[oneprice]=real_price[oneprice]*(1+(self.magicrate-1)*mrate)
-        # print("realprice:"+str(real_price))
-        # print("\n")
-        # print("ready_publish:" + str(ready_publish))
+            if oneprice == "CNY":
+                print("++++ %s" %(oneprice))
+                print("++++ %s" % (real_price[oneprice]))
+                ready_publish[oneprice] = real_price[oneprice] * (1 + (self.magicrate - 1) * mrate)
+                print("++++ %s" %(ready_publish[oneprice]))
+            else:
+                ready_publish[oneprice] = real_price[oneprice]
+        print("ready publish feeds:\n%s" %(ready_publish))
         if ready_publish:
             return ready_publish
         else:
             return real_price
 
     def task_publish_price(self):
-        self.filter_price = self.price_add_by_magicwallet(self.filter_price)
-        #print("fiter price_add_by_magicwallet:"+ str(self.filter_price))
-
+        # self.filter_price = self.price_add_by_magicwallet(self.filter_price)
+        #print(self.filter_price)
         if not self.config["witness"]:
             return
         self.feedapi.fetch_feed()
@@ -296,7 +303,6 @@ class FeedPrice(object):
         if feed_need_publish:
             self.logger.info("publish feeds: %s" % feed_need_publish)
             self.feedapi.publish_feed(feed_need_publish)
-            print("publish feeds: %s" % feed_need_publish)
 
     @asyncio.coroutine
     def run_task(self):
@@ -305,6 +311,7 @@ class FeedPrice(object):
             try:
                 self.task_get_price()
                 if self.filter_price:
+                    #print("++++ %s" % (self.filter_price['CNY']))
                     self.task_publish_price()
             except Exception as e:
                 print(e)

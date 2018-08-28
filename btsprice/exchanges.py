@@ -4,7 +4,7 @@ import asyncio
 import aiohttp
 import datetime
 import time
-import traceback
+
 
 class Exchanges():
     def __init__(self):
@@ -22,9 +22,6 @@ class Exchanges():
             params = {'c': base, 'mk_type': quote}
             response = yield from asyncio.wait_for(self.session.get(
                 url, params=params), 120)
-            #print("aex url:%s?c=%s&mk_type=%s" %(url,base,quote))
-            #response = yield from response.read()
-            # result = json.loads(response.decode("utf-8-sig"))
             response = yield from response.read()
             result = json.loads(response.decode("utf-8-sig"))
             for order_type in self.order_types:
@@ -34,8 +31,8 @@ class Exchanges():
             order_book_ask = sorted(result["asks"])
             order_book_bid = sorted(result["bids"], reverse=True)
             return {"bids": order_book_bid, "asks": order_book_ask}
-        except Exception as e:
-            traceback.print_exc()
+        except:
+            print("Error fetching book from aex!")
 
     @asyncio.coroutine
     def orderbook_bter(self, quote="cny", base="bts"):
@@ -77,16 +74,19 @@ class Exchanges():
     @asyncio.coroutine
     def orderbook_btsbots(self, quote="CNY", base="BTS"):
         try:
-            url = "https://bitsharesbot.com/api/order?max_results=100&where="
-            params = "a_s==%s;a_b==%s" % (base, quote)
+            #url = "https://btsbots.com/api/order?max_results=100&where="
+            # url = "http://localhost:5000/api/order?max_results=30&where="
+            url = "https://s3.amazonaws.com/roelandp-nl/btsbots-api-result/"
+            #params = "a_s==%s;a_b==%s" % (base, quote);
+            params = "%s-%s.json" % (base, quote)
             response = yield from asyncio.wait_for(self.session.get(
                 url+params), 120)
             result = yield from response.json()
             order_book_ask = []
             for _o in result["_items"]:
                 order_book_ask.append([_o['p'], _o['b_s']])
-            params = "a_s==%s;a_b==%s" % (quote, base)
-            print(params)
+            #params = "a_s==%s;a_b==%s" % (quote, base)
+            params = "%s-%s.json" % (quote, base)
             response = yield from asyncio.wait_for(self.session.get(
                 url+params), 120)
             result = yield from response.json()
@@ -95,10 +95,11 @@ class Exchanges():
                 order_book_bid.append([1/_o['p'], _o['b_b']])
             return {
                 "bids": order_book_bid, "asks": order_book_ask}
-        except Exception as e:
-            traceback.print_exc()
+        except:
+            print("Error fetching book from btsbots - roelandp mod ! - "+ quote)
+
     @asyncio.coroutine
-    def orderbook_poloniex(self, quote="BTC", base="BTS"):
+    def orderbook_poloniex(self, quote="btc", base="bts"):
         try:
             quote = quote.upper()
             base = base.upper()
@@ -120,7 +121,8 @@ class Exchanges():
             order_book_bid = sorted(result["bids"], reverse=True)
             return {"bids": order_book_bid, "asks": order_book_ask}
         except Exception as e:
-            traceback.print_exc()
+            print("Error fetching book from poloniex!")
+
     @asyncio.coroutine
     def orderbook_bittrex(self, quote="btc", base="bts"):
         try:
@@ -571,12 +573,11 @@ if __name__ == "__main__":
             yield from asyncio.sleep(120)
 
     tasks = [
-        #loop.create_task(run_task(exchanges.orderbook_btsbots)),
-        #loop.create_task(run_task(exchanges.orderbook_btsbots, "OPEN.BTC", "BTS")),
+        # loop.create_task(run_task(exchanges.orderbook_btsbots)),
+        # loop.create_task(run_task(exchanges.orderbook_btsbots, "OPEN.BTC", "BTS")),
         # loop.create_task(run_task(exchanges.orderbook_aex))
         # loop.create_task(run_task(exchanges.orderbook_lbank, "BTC", "BTS"))
-        loop.create_task(run_task(exchanges.orderbook_binance)),
-        # loop.create_task(run_task(exchanges.orderbook_zb, "qc", "bts"))
+        loop.create_task(run_task(exchanges.orderbook_binance))
         # loop.create_task(run_task(exchanges.orderbook_19800))
         # loop.create_task(run_task(exchanges.orderbook_yunbi)),
         # loop.create_task(run_task(exchanges.orderbook_poloniex))
