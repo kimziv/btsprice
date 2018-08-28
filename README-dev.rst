@@ -14,7 +14,7 @@ Instructions
 ------------
 #. Clone the project ::
 
-        git clone git@github.com:xiangxn/btsprice.git
+        git clone git@github.com:kimziv/btsprice.git
         cd btsprice
 
 #. Install the project's development and runtime requirements::
