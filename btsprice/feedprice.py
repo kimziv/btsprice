@@ -274,7 +274,9 @@ class FeedPrice(object):
 
     def price_add_by_magicwallet(self,real_price):
         ready_publish = {}
-        self.magicrate = self.bts_price.get_magic_rate()
+        max_negative_factor = self.config["max_negative_factor"]
+        self.magicrate = min(self.bts_price.get_magic_rate(), max_negative_factor)
+        print("max neg factor:%s, magicrate:%s" % (max_negative_factor, self.bts_price.get_magic_rate()))
         mrate = self.config["maigcwalletrate"]
         print("计算公式为 原有价格*(1+(%s-1)*%s))" %(self.magicrate,mrate))
         for oneprice in real_price:
