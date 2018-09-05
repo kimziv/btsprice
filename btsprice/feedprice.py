@@ -376,6 +376,7 @@ class FeedPrice(object):
        ready_publish = {}
        self.magicrate = self.bts_price.get_magic_rate()
        limit = self.config["negative_feedback_limit"]
+       factor = self.config["custom_negative_factor"]
        tmp = self.magicrate - 1
        if tmp <= 0:
           tmp = 1
@@ -386,7 +387,7 @@ class FeedPrice(object):
        tmp = min(tmp, limit+1)
        print("tmp * tmp:%s" %(tmp))
        for oneprice in price:
-          ready_publish[oneprice] = price[oneprice] * tmp
+          ready_publish[oneprice] = price[oneprice] * tmp * factor
        print(price)
        if ready_publish:
           return ready_publish
