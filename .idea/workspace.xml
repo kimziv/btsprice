@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7db4e9e9-7d65-4e04-ac16-d9b774485a91" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btsprice/feedprice.py" beforeDir="false" afterPath="$PROJECT_DIR$/btsprice/feedprice.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +45,7 @@
         <counts>
           <entry key="PKG-INFO" value="1" />
           <entry key="json" value="49" />
-          <entry key="py" value="446" />
+          <entry key="py" value="448" />
           <entry key="sample" value="1" />
         </counts>
       </usages-collector>
@@ -54,7 +53,7 @@
         <counts>
           <entry key="JSON" value="49" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="446" />
+          <entry key="Python" value="448" />
         </counts>
       </usages-collector>
     </session>
@@ -64,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="388" column="57" lean-forward="true" selection-start-line="388" selection-start-column="57" selection-end-line="388" selection-end-column="57" />
+            <state relative-caret-position="257">
+              <caret line="385" column="30" lean-forward="true" selection-start-line="385" selection-start-column="30" selection-end-line="385" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -488,8 +487,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/btsprice/feedprice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="388" column="57" lean-forward="true" selection-start-line="388" selection-start-column="57" selection-end-line="388" selection-end-column="57" />
+        <state relative-caret-position="257">
+          <caret line="385" column="30" lean-forward="true" selection-start-line="385" selection-start-column="30" selection-end-line="385" selection-end-column="30" />
         </state>
       </provider>
     </entry>

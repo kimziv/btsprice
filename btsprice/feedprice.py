@@ -383,7 +383,7 @@ class FeedPrice(object):
           tmp = 1 + tmp
        print("tmp:%s" % (tmp))
        tmp=tmp * tmp
-       tmp = min(tmp, limit)
+       tmp = min(tmp, limit+1)
        print("tmp * tmp:%s" %(tmp))
        for oneprice in price:
           ready_publish[oneprice] = price[oneprice] * tmp
