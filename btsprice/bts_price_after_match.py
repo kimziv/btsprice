@@ -237,7 +237,6 @@ class BTSPriceAfterMatch(object):
         return valid_depth
 
     def get_magic_rate(self):
-        #return 1.035678
         return self.data["magic"]["Magicwallet"]
 
 if __name__ == "__main__":
