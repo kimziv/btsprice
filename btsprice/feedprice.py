@@ -372,31 +372,6 @@ class FeedPrice(object):
     #    else:
     #       return price
 
-    # def price_negative_feedback(self, price):
-    #     ready_publish = {}
-    #     self.magicrate = self.bts_price.get_magic_rate()
-    #     limit = self.config["negative_feedback_limit"]
-    #     factor = self.config["custom_negative_factor"]
-    #     print("magicrate:%s" % self.magicrate)
-    #     tmp = self.magicrate - 1
-    #     tmp = 1 + tmp
-    #     print("tmp:%s" % tmp)
-    #     tmp = tmp * tmp
-    #     if tmp > 1:
-    #         tmp = min(tmp, limit+1)
-    #     elif tmp < 1:
-    #         tmp = max(tmp, 1-limit)
-    #
-    #     print("tmp * tmp:%s" %(tmp))
-    #     for oneprice in price:
-    #         ready_publish[oneprice] = price[oneprice] * tmp * factor
-    #     print(price)
-    #     if ready_publish:
-    #         return ready_publish
-    #     else:
-    #         return price
-
-#   feed algorithm
     def price_negative_feedback(self, price):
         ready_publish = {}
         self.magicrate = self.bts_price.get_magic_rate()
@@ -404,15 +379,40 @@ class FeedPrice(object):
         factor = self.config["custom_negative_factor"]
         print("magicrate:%s" % self.magicrate)
         tmp = self.magicrate - 1
-        tmp = 1 + tmp * factor
+        tmp = 1 + tmp
         print("tmp:%s" % tmp)
+        tmp = tmp * tmp
+        if tmp > 1:
+            tmp = min(tmp, limit+1)
+        elif tmp < 1:
+            tmp = max(tmp, 1-limit)
+
+        print("tmp * tmp:%s" %(tmp))
         for oneprice in price:
-            ready_publish[oneprice] = price[oneprice] * tmp
+            ready_publish[oneprice] = price[oneprice] * tmp * factor
         print(price)
         if ready_publish:
             return ready_publish
         else:
             return price
+
+#   feed algorithm
+#     def price_negative_feedback(self, price):
+#         ready_publish = {}
+#         self.magicrate = self.bts_price.get_magic_rate()
+#         limit = self.config["negative_feedback_limit"]
+#         factor = self.config["custom_negative_factor"]
+#         print("magicrate:%s" % self.magicrate)
+#         tmp = self.magicrate - 1
+#         tmp = 1 + tmp * factor
+#         print("tmp:%s" % tmp)
+#         for oneprice in price:
+#             ready_publish[oneprice] = price[oneprice] * tmp
+#         print(price)
+#         if ready_publish:
+#             return ready_publish
+#         else:
+#             return price
 
     def task_publish_price(self):
         # self.filter_price = self.price_add_by_magicwallet(self.filter_price)
