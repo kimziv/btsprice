@@ -3,9 +3,10 @@
     "timer_minute": 2,
     "maigcwalletrate":0.4,
     "magicwalletkey":"",
-    "price_mode":3,
+    "price_mode":2,
     "negative_feedback": 1,
     "negative_feedback_limit": 0.1,
+     "custom_negative_factor":1.07,
     "asset_list": [
         "BTC", "SILVER", "GOLD", "TRY", "SGD", "HKD", "NZD", "CNY",
     "MXN", "CAD", "CHF", "AUD", "GBP", "JPY", "EUR", "USD", "KRW", "TUSD", "ARS"],
